@@ -18,9 +18,10 @@ The Salary Calculator App is a web application designed to streamline paycheck c
 - React with TypeScript
 - Next.js (for server-side rendering and persistence)
 - Styled Components
-- Redux (for state management, if applicable)
+- Redux (for state management)
 - ESLint (for linting)
 - CSS Grid and Flexbox for layout
+- tailwind CSS
 
 
 ## Installation
