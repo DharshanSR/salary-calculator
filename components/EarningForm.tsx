@@ -18,16 +18,20 @@ interface Deduction {
 
 const EarningsForm = () => {
     const dispatch = useDispatch();
+
+    //local component state
     const [basicSalary, setBasicSalaryState] = useState<number>(0);
     const [earnings, setEarnings] = useState<Earning[]>([{ name: '', amount: 0, epfApplicable: false }]);
     const [deductions, setDeductions] = useState<Deduction[]>([{ name: '', amount: 0 }]);
 
+    //Handler for the basic change
     const handleBasicSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const salary = Math.max(0, Number(e.target.value)); // Ensure non-negative
         setBasicSalaryState(salary);
         dispatch(setBasicSalary(salary));
     };
 
+    // Handler for changes in earnings fields
     const handleEarningChange = (index: number, field: keyof Earning, value: string | number | boolean) => {
         const newEarnings = [...earnings];
         if (field === 'amount') {
@@ -40,7 +44,7 @@ const EarningsForm = () => {
         setEarnings(newEarnings);
     };
 
-
+    // Handler for changes in deductions fields
     const handleDeductionChange = (index: number, field: keyof Deduction, value: string | number) => {
         const newDeductions = [...deductions];
         if (field === 'amount') {
@@ -51,6 +55,7 @@ const EarningsForm = () => {
         setDeductions(newDeductions);
     };
 
+    // Add earning to the list
     const handleAddEarning = (index: number) => {
         const earning = earnings[index];
         if (earning.name && earning.amount > 0) {
@@ -61,6 +66,7 @@ const EarningsForm = () => {
         }
     };
 
+    // Add deduction to the list
     const handleAddDeduction = (index: number) => {
         const deduction = deductions[index];
         if (deduction.name && deduction.amount > 0) {
@@ -71,6 +77,7 @@ const EarningsForm = () => {
         }
     };
 
+    // Add a new earning input field
     const handleAddNewEarning = () => {
         setEarnings([...earnings, { name: '', amount: 0, epfApplicable: false }]);
     };
