@@ -11,7 +11,7 @@ The Salary Calculator App is a web application designed to streamline paycheck c
 - Responsive design for mobile and desktop usage.
 - Persist input data on page refresh using localStorage.
 
-  ![Alt text]()
+  ![Alt text](./images/Screenshot(292).png)
 
 ## Technologies Used
 
